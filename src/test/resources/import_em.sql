@@ -11,8 +11,8 @@ VALUES ('Жириновская', 'Ася', 'Прокловна', '1980-05-01', 
 
 INSERT INTO vacancies (position, salary, department_id, employee_personnel_number)
 VALUES ('Начальник отдела', 100, 1, 1);
-INSERT INTO vacancies (position, salary, department_id, employee_personnel_number)
-VALUES ('Старший мастер', 80, 1, 2);
+INSERT INTO vacancies (position, salary, department_id)
+VALUES ('Старший мастер', 80, 1);
 INSERT INTO vacancies (position, salary, department_id) VALUES ('Мастер', 60, 1);
 
 INSERT INTO vacancies (position, salary, department_id) VALUES ('Начальник отдела', 100, 2);
