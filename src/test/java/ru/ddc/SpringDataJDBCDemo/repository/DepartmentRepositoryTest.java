@@ -45,9 +45,10 @@ class DepartmentRepositoryTest {
 
     @DisplayName("Метод findById(id) должен вернуть пустой Optional если строки с таким id не существует")
     @Test
-    public void whenIdNotExistThenThrowException() {
+    public void whenIdNotExistThenEmptyOptional() {
         long id = Long.MAX_VALUE;
-        assertEquals(Optional.empty(), departmentRepository.findById(id));
+        Optional<Department> optionalDepartment = departmentRepository.findById(id);
+        assertEquals(Optional.empty(), optionalDepartment);
     }
 
     @DisplayName("Метод count() должен вернуть 4 - количество отделов, добавленных перед запуском")
@@ -60,11 +61,11 @@ class DepartmentRepositoryTest {
     @DisplayName("После выполнения метода save() отделов должно стать на 1 больше")
     @Test
     public void whenSaveThenShouldBeOneMoreDepartment() {
-        long departmentsCountBeforeSave = departmentRepository.count();
+        long countBeforeSave = departmentRepository.count();
         Department department = Department.builder().build();
         departmentRepository.save(department);
-        long departmentsCountAfterSave = departmentRepository.count();
-        assertEquals(1, departmentsCountAfterSave - departmentsCountBeforeSave);
+        long countAfterSave = departmentRepository.count();
+        assertEquals(1, countAfterSave - countBeforeSave);
     }
 
     @DisplayName("После выполнения метода save() все поля должны сохраниться")
